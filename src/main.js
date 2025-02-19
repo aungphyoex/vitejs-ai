@@ -8,7 +8,6 @@ document.querySelector("#app").innerHTML = `
     ${navigation()}
     <section class="w-full flex-1 flex justify-center items-center flex-col">
         <div id="chat_content" class="w-full mb-5 ">
-           
         </div>
         ${chat()}
     </section>
@@ -54,13 +53,15 @@ document.getElementById("form_chat").addEventListener("submit",async (event)=> {
         console.log(result);
 
         chatDiv.innerHTML = `
-        <div class="flex flex-col-reverse gap-9 md:grid md:grid-cols-2 max-w-4xl mx-auto w-full">
-           <div></div>
+        <div class="flex flex-col gap-9 md:grid md:grid-cols-2 max-w-4xl mx-auto w-full">
+           <div class="hidden md:block"></div>
+        
+         <h1 class="text-lg md:text-xl text-white  p-1 border-r-2 border-r-gray-500 pr-4 text-end">${chat_text.value}</h1>
            <div class="bg-[#2F2F2F] p-3 rounded-2xl prose prose-invert">
                ${marked.parse(result.result)}
             </div>
-           <h1 class="text-lg md:text-xl text-white  p-1 border-l-2 border-l-gray-500 pl-4">${chat_text.value}</h1>
-           <div></div>
+           <div class="hidden md:block"></div>
+          
         </div>`
 
         chat_content.append(chatDiv);
